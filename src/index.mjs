@@ -1,6 +1,7 @@
 import {createServer} from 'node:http';
+import {env} from 'node:process';
 
-const PORT = 80;
+const PORT = env.PORT;
 
 const server = createServer((req, res) => {
     res.statusCode = 200;
