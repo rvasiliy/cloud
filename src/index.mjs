@@ -5,7 +5,8 @@ const PORT = env.PORT;
 
 const server = createServer((req, res) => {
     res.statusCode = 200;
-    res.write(JSON.stringify(req.headers, null, 2));
+    const headers = Object.fromEntries(Object.entries(req.headers).filter(([key]) => key.startsWith('cf-')));
+    res.write(JSON.stringify(headers, null, 2));
 
     res.end();
 });
